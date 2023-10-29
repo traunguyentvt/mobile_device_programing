@@ -8,6 +8,11 @@ android {
     namespace = "com.tvt.dinnerdecider"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.tvt.dinnerdecider"
         minSdk = 16
