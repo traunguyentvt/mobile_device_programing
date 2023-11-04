@@ -19,7 +19,7 @@ Screenshot1             |  Screenshot2   |  Screenshot3
 
 <h3>Walmart</h3>
 
-Screenshot1
+Screenshot1             |
 :-------------------------:
 <img src="Assignment_3/Walmart/Screenshots/walmart.png" width="300" height="500"/>
 
