@@ -6,6 +6,24 @@
 
 
 
+<h2>Assignment 5</h2>
+
+<h3>Electronics</h3>
+
+Screenshot1             |  Screenshot2   |  Screenshot3|  Screenshot4   
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+<img src="Assignment_5/Electronics/Screenshots/electronics_1.png" width="300" height="500"/> | <img src="Assignment_5/Electronics/Screenshots/electronics_2.png" width="300" height="500"/> | <img src="Assignment_5/Electronics/Screenshots/electronics_3.png" width="300" height="500"/>| <img src="Assignment_5/Electronics/Screenshots/electronics_4.png" width="300" height="500"/>
+
+
+<h3>QuizApp</h3>
+
+Screenshot1             |  Screenshot2   |  Screenshot3
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="Assignment_5/QuizApp/Screenshots/quizapp_1.png" width="300" height="500"/> | <img src="Assignment_5/QuizApp/Screenshots/quizapp_2.png" width="300" height="500"/> | <img src="Assignment_5/QuizApp/Screenshots/quizapp_3.png" width="300" height="500"/>
+
+
+
+
 <h2>Assignment 4</h2>
 
 Screenshot1             |  Screenshot2   |  Screenshot3

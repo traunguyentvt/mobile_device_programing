@@ -1,6 +1,5 @@
 package com.tvt.walmart.viewmodels
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,13 @@ import com.tvt.walmart.R
 import com.tvt.walmart.models.Category
 import com.tvt.walmart.views.listeners.CategoryListener
 
-class CategoryAdapter(val context: Context, val listener: CategoryListener) : RecyclerView.Adapter<ViewHolder>() {
+class CategoryAdapter(val listener: CategoryListener)
+    : RecyclerView.Adapter<ViewHolder>() {
 
     var dataSet: ArrayList<Category> = ArrayList()
 
     // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, vivewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.category_item, viewGroup, false)
@@ -48,7 +48,7 @@ class CategoryAdapter(val context: Context, val listener: CategoryListener) : Re
         notifyDataSetChanged()
     }
 
-    fun updateItem(category: Category){
+    fun updateItem(category: Category) {
         val existedIndex = dataSet.indexOf(category)
         if (existedIndex < 0) {
             return
@@ -79,10 +79,14 @@ class CategoryAdapter(val context: Context, val listener: CategoryListener) : Re
             tvName.setText(data.name)
             imv.setImageResource(data.image)
 
-            tvName.setOnClickListener { nameView ->
-                listener.selectedCategory(data)
-            }
-            imv.setOnClickListener { imvView ->
+//            tvName.setOnClickListener { nameView ->
+//                listener.selectedCategory(data)
+//            }
+//            imv.setOnClickListener { imvView ->
+//                listener.selectedCategory(data)
+//            }
+
+            itemView.setOnClickListener { itemView
                 listener.selectedCategory(data)
             }
         }

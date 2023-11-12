@@ -28,7 +28,7 @@ class ShoppingActivity : AppCompatActivity(), CategoryListener {
         binding.tvWelcome.text = "${resources.getText(R.string.txt_welcome)} ${currentUser?.email}"
 
         if (!this::categoryAdapter.isInitialized) {
-            categoryAdapter = CategoryAdapter(this, this)
+            categoryAdapter = CategoryAdapter(this)
         }
 
         binding.rvShop.adapter = categoryAdapter
