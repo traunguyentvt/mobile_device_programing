@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FoodiePal - Culinary Companion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txt_recipes">Recipes</string>
+    <string name="txt_meal_planner">Meal Planner</string>
+    <string name="txt_blog">Blog</string>
+    <string name="txt_contact">Contact</string>
+    <string name="txt_about_me">About Me</string>
+</resources>
