@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.tvt.foodiepal.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,5 +57,9 @@ class RecipeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun onAdd() {
+        Toast.makeText(requireContext(), "TVT 1", Toast.LENGTH_SHORT).show()
     }
 }

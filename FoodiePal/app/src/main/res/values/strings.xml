@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">FoodiePal - Culinary Companion</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="txt_recipes">Recipes</string>
     <string name="txt_meal_planner">Meal Planner</string>
     <string name="txt_blog">Blog</string>
     <string name="txt_contact">Contact</string>
     <string name="txt_about_me">About Me</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_author">TVT</string>
+    <string name="txt_job">iOS Software Engineer</string>
+    <string name="txt_information_details">Information details:</string>
+    <string name="txt_information">Information</string>
+    <string name="txt_title">Title*</string>
+    <string name="txt_desc">Description*</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="txt_please_input_title">Please input title</string>
+    <string name="txt_please_input_desc">Please input description</string>
 </resources>
