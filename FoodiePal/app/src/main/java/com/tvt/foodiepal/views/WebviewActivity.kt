@@ -2,8 +2,8 @@ package com.tvt.foodiepal.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebViewClient
-import com.tvt.foodiepal.R
 import com.tvt.foodiepal.databinding.ActivityWebviewBinding
 
 class WebviewActivity : AppCompatActivity() {
@@ -27,5 +27,9 @@ class WebviewActivity : AppCompatActivity() {
         binding.webView.settings.builtInZoomControls = true
         binding.webView.webViewClient = WebViewClient()
         binding.webView.loadUrl(urlString)
+    }
+
+    fun onBack(view: View) {
+        finish()
     }
 }

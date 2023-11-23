@@ -99,13 +99,13 @@ class ContactFragment : Fragment() {
         startActivity(intent)
     }
 
-    fun openGithub() {
+    fun openLinkedin() {
         val intent = Intent(context, WebviewActivity::class.java)
         intent.putExtra("currentUrl", "https://www.linkedin.com/in/trau-nguyen")
         startActivity(intent)
     }
 
-    fun openLinkedin() {
+    fun openGithub() {
         val intent = Intent(context, WebviewActivity::class.java)
         intent.putExtra("currentUrl", "https://github.com/traunguyentvt")
         startActivity(intent)

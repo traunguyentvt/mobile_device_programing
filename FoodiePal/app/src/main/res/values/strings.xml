@@ -8,7 +8,7 @@
     <string name="txt_add">Add</string>
     <string name="txt_author">TVT</string>
     <string name="txt_job">iOS Software Engineer</string>
-    <string name="txt_information_details">Information details:</string>
+    <string name="txt_information_details">Information details:\n\nHobbies: traveling, fishing, reading...</string>
     <string name="txt_information">Information</string>
     <string name="txt_title">Title*</string>
     <string name="txt_desc">Description*</string>
@@ -20,4 +20,6 @@
     <string name="txt_email_address">Email address</string>
     <string name="txt_linkedin">Linked in</string>
     <string name="txt_github">GitHub</string>
+    <string name="txt_new_recipe">New Recipe</string>
+    <string name="txt_back">Back</string>
 </resources>

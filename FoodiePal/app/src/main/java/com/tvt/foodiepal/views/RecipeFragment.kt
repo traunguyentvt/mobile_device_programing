@@ -1,12 +1,18 @@
 package com.tvt.foodiepal.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.tvt.foodiepal.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.tvt.foodiepal.databinding.FragmentRecipeBinding
+import com.tvt.foodiepal.dialogs.RecipeDialog
+import com.tvt.foodiepal.listeners.DialogListener
+import com.tvt.foodiepal.listeners.RecipeListener
+import com.tvt.foodiepal.models.RecipeModel
+import com.tvt.foodiepal.viewModels.RecipeAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +24,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [RecipeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RecipeFragment : Fragment() {
+class RecipeFragment : Fragment(), RecipeListener, DialogListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentRecipeBinding
+    private lateinit var recipeAdapter: RecipeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +45,9 @@ class RecipeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe, container, false)
+        binding = FragmentRecipeBinding.inflate(layoutInflater)
+        initViews()
+        return binding.root
     }
 
     companion object {
@@ -59,7 +70,32 @@ class RecipeFragment : Fragment() {
             }
     }
 
+    private fun initViews() {
+        if (!this::recipeAdapter.isInitialized) {
+            recipeAdapter = RecipeAdapter(this)
+        }
+        binding.rvRecipe.adapter = recipeAdapter
+        binding.rvRecipe.layoutManager = LinearLayoutManager(context)
+
+        recipeAdapter.setData(RecipeModel.createRecipes())
+    }
+
     fun onAdd() {
-        Toast.makeText(requireContext(), "TVT 1", Toast.LENGTH_SHORT).show()
+        val dialog = RecipeDialog(this)
+        dialog.show(parentFragmentManager, RecipeDialog::class.java.name)
+    }
+
+    override fun viewRecipe(recipe: RecipeModel) {
+        val url = recipe.url ?: ""
+        if (url.isEmpty()) {
+            return
+        }
+        val intent = Intent(context, WebviewActivity::class.java)
+        intent.putExtra("currentUrl", url)
+        startActivity(intent)
+    }
+
+    override fun addRecipe(recipe: RecipeModel) {
+        recipeAdapter.addRecipe(recipe)
     }
 }

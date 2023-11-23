@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.tvt.foodiepal.R
 import com.tvt.foodiepal.databinding.FragmentAboutMeBinding
 import com.tvt.foodiepal.dialogs.AboutMeDialog
 import com.tvt.foodiepal.listeners.DialogListener

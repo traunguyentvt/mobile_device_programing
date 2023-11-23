@@ -3,7 +3,6 @@ package com.tvt.foodiepal.views
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.forEach
 import androidx.core.view.isGone
 import com.google.android.material.tabs.TabLayout

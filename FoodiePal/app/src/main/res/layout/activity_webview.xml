@@ -11,4 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnBack"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="onBack"
+        android:contentDescription="@string/txt_back"
+        android:foreground="@drawable/icon_back"
+        app:backgroundTint="@android:color/transparent"
+        android:outlineProvider="none"
+        app:borderWidth="0dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

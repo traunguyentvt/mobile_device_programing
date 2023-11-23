@@ -3,7 +3,6 @@ package com.tvt.foodiepal.dialogs
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -11,7 +10,6 @@ import com.tvt.foodiepal.R
 import com.tvt.foodiepal.databinding.AboutmeDialogBinding
 import com.tvt.foodiepal.listeners.DialogListener
 import com.tvt.foodiepal.models.AboutMeModel
-import com.tvt.foodiepal.models.BaseModel
 
 class AboutMeDialog(var listener: DialogListener): DialogFragment() {
 
@@ -25,7 +23,6 @@ class AboutMeDialog(var listener: DialogListener): DialogFragment() {
         binding = AboutmeDialogBinding.inflate(layoutInflater)
         val dialog = activity?.let {
             val builder = AlertDialog.Builder(it)
-
             builder.setView(binding.root)
             builder.create()
         } ?: throw IllegalStateException("Error!!!")
@@ -55,7 +52,7 @@ class AboutMeDialog(var listener: DialogListener): DialogFragment() {
             showToast(resources.getString(R.string.txt_please_input_desc))
             return
         }
-        listener.addData(BaseModel(subject, desc))
+        listener.addData(AboutMeModel(subject, desc))
         dismiss()
     }
 
