@@ -1,12 +1,14 @@
 package com.tvt.foodiepal.views
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.tvt.foodiepal.R
+import com.tvt.foodiepal.databinding.FragmentContactBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +25,8 @@ class ContactFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentContactBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,7 +40,9 @@ class ContactFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        binding = FragmentContactBinding.inflate(layoutInflater)
+        initViews()
+        return binding.root
     }
 
     companion object {
@@ -61,5 +67,47 @@ class ContactFragment : Fragment() {
 
     fun onAdd() {
         Toast.makeText(requireContext(), "TVT 4", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun initViews() {
+        binding.cvMobile.setOnClickListener {
+            openMobilePhone()
+        }
+        binding.cvEmail.setOnClickListener {
+            openEmail()
+        }
+        binding.cvLinkedin.setOnClickListener {
+            openLinkedin()
+        }
+        binding.cvGithub.setOnClickListener {
+            openGithub()
+        }
+    }
+
+    fun openMobilePhone() {
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:6415570137")
+        startActivity(intent)
+    }
+
+    fun openEmail() {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, "traunguyen92@gmail.com")
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Contact via FoodiePal App")
+        intent.putExtra(Intent.EXTRA_TEXT, "iOS Software Engineer")
+        startActivity(intent)
+    }
+
+    fun openGithub() {
+        val intent = Intent(context, WebviewActivity::class.java)
+        intent.putExtra("currentUrl", "https://www.linkedin.com/in/trau-nguyen")
+        startActivity(intent)
+    }
+
+    fun openLinkedin() {
+        val intent = Intent(context, WebviewActivity::class.java)
+        intent.putExtra("currentUrl", "https://github.com/traunguyentvt")
+        startActivity(intent)
     }
 }

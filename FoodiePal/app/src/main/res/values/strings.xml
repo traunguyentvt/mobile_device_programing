@@ -15,4 +15,9 @@
     <string name="txt_cancel">Cancel</string>
     <string name="txt_please_input_title">Please input title</string>
     <string name="txt_please_input_desc">Please input description</string>
+    <string name="txt_my_contacts">My Contacts</string>
+    <string name="txt_mobile_phone">Mobile Phone</string>
+    <string name="txt_email_address">Email address</string>
+    <string name="txt_linkedin">Linked in</string>
+    <string name="txt_github">GitHub</string>
 </resources>

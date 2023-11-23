@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.forEach
+import androidx.core.view.isGone
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.tvt.foodiepal.R
@@ -65,8 +66,8 @@ class MainActivity : AppCompatActivity() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when(tab?.text) {
-                    resources.getText(R.string.txt_contact) -> unSelectedBottomNavigationView()
-                    resources.getText(R.string.txt_about_me) -> unSelectedBottomNavigationView()
+                    resources.getText(R.string.txt_contact) -> unSelectedBottomNavigationView(3)
+                    resources.getText(R.string.txt_about_me) -> unSelectedBottomNavigationView(4)
                     else -> selectedBottomNavigationView(tab?.text.toString())
                 }
             }
@@ -79,13 +80,23 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun unSelectedBottomNavigationView() {
+    private fun unSelectedBottomNavigationView(index: Int) {
+        updateBtnAction(index)
         binding.bottomNavigationView.getMenu().forEach { item ->
             item.setCheckable(false)
         }
     }
 
+    private fun updateBtnAction(index: Int) {
+        if (index == 3) {
+            binding.btnAction.isGone = true
+        } else {
+            binding.btnAction.isGone = false
+        }
+    }
+
     private fun selectedBottomNavigationView(name: String) {
+        updateBtnAction(0)
         binding.bottomNavigationView.getMenu().forEach { item ->
             if (item.title.toString() == name) {
                 item.setCheckable(true)
@@ -98,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottomNavigationView() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            updateBtnAction(0)
             when (it.itemId) {
                 R.id.recipe -> pageAdapter.setCurrentItem(0)
                 R.id.mealPlanner -> pageAdapter.setCurrentItem(1)
