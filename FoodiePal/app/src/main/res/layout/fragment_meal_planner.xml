@@ -6,10 +6,10 @@
     tools:context=".views.MealPlannerFragment"
     android:padding="10dp" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMeals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Meal Planner" />
+        tools:listitem="@layout/item_meal_planner" />
 
 </FrameLayout>

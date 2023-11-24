@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".views.AboutMeFragment"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".views.AboutMeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,56 +19,64 @@
                 android:id="@+id/imv"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
-                android:src="@drawable/tvt"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="30dp"
+                android:padding="5dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/tvt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/Circular"
-                app:strokeWidth="5dp"
                 app:strokeColor="@color/cyan_500"
-                android:padding="5dp"/>
+                app:strokeWidth="5dp" />
+
+            <ImageView
+                android:id="@+id/imvGallery"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toTopOf="@id/imv"
+                app:layout_constraintEnd_toEndOf="@id/imv"
+                android:src="@drawable/gallery" />
 
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imv"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:text="@string/txt_author"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imv" />
 
             <TextView
                 android:id="@+id/tvJob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAuthor"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:text="@string/txt_job"
                 android:textSize="20sp"
-                android:textStyle="italic"/>
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAuthor" />
 
             <TextView
                 android:id="@+id/tvDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvJob"
-                android:layout_marginTop="50dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="20dp"
-                android:text="@string/txt_information_details"/>
+                android:text="@string/txt_information_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvJob" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

@@ -1,11 +1,14 @@
 package com.tvt.foodiepal.views
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.tvt.foodiepal.databinding.FragmentAboutMeBinding
 import com.tvt.foodiepal.dialogs.AboutMeDialog
 import com.tvt.foodiepal.listeners.DialogListener
@@ -48,8 +51,12 @@ class AboutMeFragment : Fragment(), DialogListener {
     }
 
     private fun initView() {
-        binding.imv.setOnClickListener{
-            Toast.makeText(requireContext(), "TVT", Toast.LENGTH_SHORT).show()
+        binding.imv.setOnClickListener {
+            val pickImg = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI
+            )
+            changeImage.launch(pickImg)
         }
     }
 
@@ -83,4 +90,15 @@ class AboutMeFragment : Fragment(), DialogListener {
                 "\n\n" + model.name + ": " + model.desc
         binding.tvDesc.text = msg
     }
+
+    private val changeImage =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val data = it.data
+                val imgUri = data?.data
+                binding.imv.setImageURI(imgUri)
+            }
+        }
 }

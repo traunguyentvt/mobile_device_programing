@@ -51,7 +51,7 @@ class MainPageViewAdapter(
     }
 
     fun onAdd() {
-        when(getCurrentItem()) {
+        when (getCurrentItem()) {
             0 -> recipeFragment.onAdd()
             1 -> mealPlannerFragment.onAdd()
             2 -> blogFragment.onAdd()

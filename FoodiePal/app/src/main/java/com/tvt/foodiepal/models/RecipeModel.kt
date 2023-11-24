@@ -1,5 +1,6 @@
 package com.tvt.foodiepal.models
 
+import android.net.Uri
 import android.os.Parcel
 import android.os.Parcelable
 import com.tvt.foodiepal.R
@@ -10,7 +11,8 @@ data class RecipeModel(
     val instructions: String,
     val rating: Double,
     val image: Int,
-    val url: String? = null
+    val url: String? = null,
+    val imgUri: Uri? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",

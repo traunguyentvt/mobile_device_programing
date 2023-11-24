@@ -12,7 +12,7 @@ import com.tvt.foodiepal.R
 import com.tvt.foodiepal.listeners.RecipeListener
 import com.tvt.foodiepal.models.RecipeModel
 
-class RecipeAdapter(val listener: RecipeListener): RecyclerView.Adapter<ViewHolder>() {
+class RecipeAdapter(val listener: RecipeListener) : RecyclerView.Adapter<ViewHolder>() {
     private var dataSet = ArrayList<RecipeModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -71,10 +71,14 @@ class RecipeAdapter(val listener: RecipeListener): RecyclerView.Adapter<ViewHold
         }
 
         fun setData(recipe: RecipeModel, listener: RecipeListener) {
-            if (recipe.image > 0) {
-                imv.setImageResource(recipe.image)
-            }else {
-                imv.setImageResource(R.drawable.recipe_book)
+            if (recipe.imgUri != null) {
+                imv.setImageURI(recipe.imgUri)
+            } else {
+                if (recipe.image > 0) {
+                    imv.setImageResource(recipe.image)
+                } else {
+                    imv.setImageResource(R.drawable.recipe_book)
+                }
             }
             tvName.setText(recipe.name)
             tvIngredients.setText(recipe.ingredients)

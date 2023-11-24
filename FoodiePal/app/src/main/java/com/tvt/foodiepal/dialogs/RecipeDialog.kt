@@ -1,11 +1,16 @@
 package com.tvt.foodiepal.dialogs
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.InputFilter
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.tvt.foodiepal.R
 import com.tvt.foodiepal.databinding.RecipeDialogBinding
@@ -16,6 +21,7 @@ import com.tvt.foodiepal.utilities.MinMaxFilter
 class RecipeDialog(var listener: DialogListener) : DialogFragment() {
 
     private lateinit var binding: RecipeDialogBinding
+    private var imgUri: Uri? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -42,6 +48,14 @@ class RecipeDialog(var listener: DialogListener) : DialogFragment() {
         }
         binding.btnAdd.setOnClickListener {
             addRecipe()
+        }
+
+        binding.imv.setOnClickListener {
+            val pickImg = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI
+            )
+            changeImage.launch(pickImg)
         }
     }
 
@@ -76,7 +90,8 @@ class RecipeDialog(var listener: DialogListener) : DialogFragment() {
                 instructions,
                 rating,
                 R.drawable.recipe_book,
-                url
+                url,
+                imgUri
             )
         )
         dismiss()
@@ -85,4 +100,15 @@ class RecipeDialog(var listener: DialogListener) : DialogFragment() {
     private fun showToast(msg: String) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
+
+    private val changeImage =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val data = it.data
+                imgUri = data?.data
+                binding.imv.setImageURI(imgUri)
+            }
+        }
 }

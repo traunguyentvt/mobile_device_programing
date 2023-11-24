@@ -6,7 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.tvt.foodiepal.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.tvt.foodiepal.databinding.FragmentMealPlannerBinding
+import com.tvt.foodiepal.dialogs.MealPlannerDialog
+import com.tvt.foodiepal.listeners.DialogListener
+import com.tvt.foodiepal.models.MealPlannerModel
+import com.tvt.foodiepal.viewModels.MealPlannerAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,10 +23,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [MealPlannerFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class MealPlannerFragment : Fragment() {
+class MealPlannerFragment : Fragment(), DialogListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentMealPlannerBinding
+    private lateinit var mealPlannerAdapter: MealPlannerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +43,10 @@ class MealPlannerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentMealPlannerBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_meal_planner, container, false)
+        initViews()
+        return binding.root
     }
 
     companion object {
@@ -60,6 +70,19 @@ class MealPlannerFragment : Fragment() {
     }
 
     fun onAdd() {
-        Toast.makeText(requireContext(), "TVT 2", Toast.LENGTH_SHORT).show()
+        val dialog = MealPlannerDialog(this)
+        dialog.show(parentFragmentManager, MealPlannerDialog::class.java.name)
+    }
+
+    private fun initViews() {
+        mealPlannerAdapter = MealPlannerAdapter()
+        binding.rvMeals.adapter = mealPlannerAdapter
+        binding.rvMeals.layoutManager = LinearLayoutManager(context)
+
+        mealPlannerAdapter.setData(MealPlannerModel.createMealPlanners())
+    }
+
+    override fun addMealPlanner(mealPlanner: MealPlannerModel) {
+        mealPlannerAdapter.addMealPlanner(mealPlanner)
     }
 }
