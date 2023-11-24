@@ -41,7 +41,6 @@ class RecipeAdapter(val listener: RecipeListener) : RecyclerView.Adapter<ViewHol
             dataSet.clear()
         }
         dataSet.addAll(list)
-        reloadData()
     }
 
     fun addRecipe(recipe: RecipeModel) {

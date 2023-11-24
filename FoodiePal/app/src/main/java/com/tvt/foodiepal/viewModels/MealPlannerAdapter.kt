@@ -39,7 +39,6 @@ class MealPlannerAdapter: RecyclerView.Adapter<ViewHolder>() {
             dataSet.clear()
         }
         dataSet.addAll(list)
-        reloadData()
     }
 
     fun addMealPlanner(mealPlanner: MealPlannerModel) {

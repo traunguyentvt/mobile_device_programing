@@ -59,7 +59,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:text="@string/txt_job"
+                android:text="Welcome to the FoodiePal app"
                 android:textSize="20sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"

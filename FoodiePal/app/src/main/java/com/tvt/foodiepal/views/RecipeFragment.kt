@@ -32,6 +32,10 @@ class RecipeFragment : Fragment(), RecipeListener, DialogListener {
     private lateinit var binding: FragmentRecipeBinding
     private lateinit var recipeAdapter: RecipeAdapter
 
+    init {
+        print("XXX")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -73,11 +77,11 @@ class RecipeFragment : Fragment(), RecipeListener, DialogListener {
     private fun initViews() {
         if (!this::recipeAdapter.isInitialized) {
             recipeAdapter = RecipeAdapter(this)
+            recipeAdapter.setData(RecipeModel.createRecipes())
         }
         binding.rvRecipe.adapter = recipeAdapter
         binding.rvRecipe.layoutManager = LinearLayoutManager(context)
-
-        recipeAdapter.setData(RecipeModel.createRecipes())
+        recipeAdapter.reloadData()
     }
 
     fun onAdd() {

@@ -6,6 +6,27 @@
 
 
 
+<h2>Assignment 6</h2>
+
+Screenshot1             |  Screenshot2   |  Screenshot3
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="FoodiePal/Screenshots/screenshot_1.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_2.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_3.png" width="300" height="500"/>
+
+Screenshot4             |  Screenshot5   |  Screenshot6
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="FoodiePal/Screenshots/screenshot_4.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_5.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_6.png" width="300" height="500"/>
+
+Screenshot7             |  Screenshot8   |  Screenshot9
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="FoodiePal/Screenshots/screenshot_7.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_8.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_9.png" width="300" height="500"/>
+
+Screenshot10             |  Screenshot11   |  Screenshot12
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="FoodiePal/Screenshots/screenshot_10.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_11.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_12.png" width="300" height="500"/>
+
+
+
+
 <h2>Assignment 5</h2>
 
 <h3>Electronics</h3>

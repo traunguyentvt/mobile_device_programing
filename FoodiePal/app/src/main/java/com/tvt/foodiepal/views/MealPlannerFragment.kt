@@ -75,11 +75,14 @@ class MealPlannerFragment : Fragment(), DialogListener {
     }
 
     private fun initViews() {
-        mealPlannerAdapter = MealPlannerAdapter()
+        if (!this::mealPlannerAdapter.isInitialized) {
+            mealPlannerAdapter = MealPlannerAdapter()
+            mealPlannerAdapter.setData(MealPlannerModel.createMealPlanners())
+        }
+
         binding.rvMeals.adapter = mealPlannerAdapter
         binding.rvMeals.layoutManager = LinearLayoutManager(context)
-
-        mealPlannerAdapter.setData(MealPlannerModel.createMealPlanners())
+        mealPlannerAdapter.reloadData()
     }
 
     override fun addMealPlanner(mealPlanner: MealPlannerModel) {
