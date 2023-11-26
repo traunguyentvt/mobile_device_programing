@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.tvt.foodiepal.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.tvt.foodiepal.databinding.FragmentBlogBinding
 import com.tvt.foodiepal.dialogs.RecipeDialog
 import com.tvt.foodiepal.listeners.BlogListener
 import com.tvt.foodiepal.listeners.DialogListener
 import com.tvt.foodiepal.models.BlogModel
+import com.tvt.foodiepal.viewModels.BlogAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,9 @@ class BlogFragment : Fragment(), DialogListener, BlogListener {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var bindingBlogBinding: FragmentBlogBinding
+    private lateinit var blogAdapter: BlogAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,7 +45,9 @@ class BlogFragment : Fragment(), DialogListener, BlogListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blog, container, false)
+        bindingBlogBinding = FragmentBlogBinding.inflate(layoutInflater)
+        initViews()
+        return bindingBlogBinding.root
     }
 
     companion object {
@@ -63,17 +70,27 @@ class BlogFragment : Fragment(), DialogListener, BlogListener {
             }
     }
 
+    private fun initViews() {
+        if (!this::blogAdapter.isInitialized) {
+            blogAdapter = BlogAdapter(this)
+            blogAdapter.setData(BlogModel.createBlogs())
+        }
+        bindingBlogBinding.rvBlog.layoutManager = LinearLayoutManager(context)
+        bindingBlogBinding.rvBlog.adapter = blogAdapter
+        blogAdapter.reloadData()
+    }
+
     fun onAdd() {
         val dialog = RecipeDialog(this)
         dialog.show(parentFragmentManager, BlogFragment::class.java.name)
     }
 
     override fun addBlog(blogModel: BlogModel) {
-
+        blogAdapter.addBlog(blogModel)
     }
 
-    override fun viewBlog(blogModel: BlogModel) {
-        val url = blogModel.url ?: ""
+    override fun viewBlog(blog: BlogModel) {
+        val url = blog.url ?: ""
         if (url.isEmpty()) {
             return
         }
