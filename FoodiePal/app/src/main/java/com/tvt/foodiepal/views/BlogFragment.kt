@@ -1,12 +1,16 @@
 package com.tvt.foodiepal.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.tvt.foodiepal.R
+import com.tvt.foodiepal.dialogs.RecipeDialog
+import com.tvt.foodiepal.listeners.BlogListener
+import com.tvt.foodiepal.listeners.DialogListener
+import com.tvt.foodiepal.models.BlogModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [BlogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BlogFragment : Fragment() {
+class BlogFragment : Fragment(), DialogListener, BlogListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -60,6 +64,21 @@ class BlogFragment : Fragment() {
     }
 
     fun onAdd() {
-        Toast.makeText(requireContext(), "TVT 3", Toast.LENGTH_SHORT).show()
+        val dialog = RecipeDialog(this)
+        dialog.show(parentFragmentManager, BlogFragment::class.java.name)
+    }
+
+    override fun addBlog(blogModel: BlogModel) {
+
+    }
+
+    override fun viewBlog(blogModel: BlogModel) {
+        val url = blogModel.url ?: ""
+        if (url.isEmpty()) {
+            return
+        }
+        val intent = Intent(context, WebviewActivity::class.java)
+        intent.putExtra("currentUrl", url)
+        startActivity(intent)
     }
 }

@@ -32,10 +32,6 @@ class RecipeFragment : Fragment(), RecipeListener, DialogListener {
     private lateinit var binding: FragmentRecipeBinding
     private lateinit var recipeAdapter: RecipeAdapter
 
-    init {
-        print("XXX")
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

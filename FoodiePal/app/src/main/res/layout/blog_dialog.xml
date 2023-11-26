@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".dialogs.AboutMeDialog">
+    tools:context=".dialogs.BlogDialog">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/txt_information"
+        android:text="New Blog"
         android:textColor="@color/cyan_700"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -21,17 +21,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvSubject"
+        android:id="@+id/tvBlogName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-        android:text="@string/txt_title"
+        android:text="Blog name*"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <EditText
-        android:id="@+id/etSubject"
+        android:id="@+id/etBlogName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -43,7 +43,7 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+        app:layout_constraintTop_toBottomOf="@id/tvBlogName" />
 
     <TextView
         android:id="@+id/tvDesc"
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
-        android:text="@string/txt_desc"
+        android:text="Blog description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etSubject" />
+        app:layout_constraintTop_toBottomOf="@id/etBlogName" />
 
     <EditText
         android:id="@+id/etDesc"
@@ -70,6 +70,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDesc" />
 
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:text="Link*"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDesc" />
+
+    <EditText
+        android:id="@+id/etLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_curved_grey"
+        android:inputType="textCapSentences"
+        android:minHeight="45dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLink" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +102,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etDesc">
+        app:layout_constraintTop_toBottomOf="@id/etLink">
 
         <Button
             android:id="@+id/btnCancel"
