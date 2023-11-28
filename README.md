@@ -24,6 +24,10 @@ Screenshot10             |  Screenshot11   |  Screenshot12
 :-------------------------:|:-------------------------:|:-------------------------:
 <img src="FoodiePal/Screenshots/screenshot_10.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_11.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_12.png" width="300" height="500"/>
 
+Screenshot13             |  Screenshot14   
+:-------------------------:|:-------------------------:
+<img src="FoodiePal/Screenshots/screenshot_13.png" width="300" height="500"/> | <img src="FoodiePal/Screenshots/screenshot_14.png" width="300" height="500"/>
+
 
 
 

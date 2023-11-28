@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tvt.foodiepal.databinding.FragmentBlogBinding
-import com.tvt.foodiepal.dialogs.RecipeDialog
+import com.tvt.foodiepal.dialogs.BlogDialog
 import com.tvt.foodiepal.listeners.BlogListener
 import com.tvt.foodiepal.listeners.DialogListener
 import com.tvt.foodiepal.models.BlogModel
@@ -81,7 +81,7 @@ class BlogFragment : Fragment(), DialogListener, BlogListener {
     }
 
     fun onAdd() {
-        val dialog = RecipeDialog(this)
+        val dialog = BlogDialog(this)
         dialog.show(parentFragmentManager, BlogFragment::class.java.name)
     }
 
