@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Gardening Journal</string>
+    <string name="plant_detal">Plant Detail</string>
+    <string name="add_a_new_plant">Add a new Plant</string>
+    <string name="add_a_Plant">Add a Plant</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="plant_name">Plant name*</string>
+    <string name="plant_type">Plant type*</string>
+    <string name="watering_frequency">Watering frequency*</string>
+    <string name="planting_date">Planting date*</string>
 </resources>
