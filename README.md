@@ -5,6 +5,18 @@
 
 
 
+<h2>Assignment 7</h2>
+
+Screenshot1             |  Screenshot2   |  Screenshot3
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="GardeningJournal/Screenshots/screenshot_1.png" width="300" height="500"/> | <img src="GardeningJournal/Screenshots/screenshot_2.png" width="300" height="500"/> | <img src="GardeningJournal/Screenshots/screenshot_3.png" width="300" height="500"/>
+
+Screenshot4             |  Screenshot5   
+:-------------------------:|:-------------------------:
+<img src="GardeningJournal/Screenshots/screenshot_4.png" width="300" height="500"/> | <img src="GardeningJournal/Screenshots/screenshot_5.png" width="300" height="500"/>
+
+
+
 
 <h2>Assignment 6</h2>
 
