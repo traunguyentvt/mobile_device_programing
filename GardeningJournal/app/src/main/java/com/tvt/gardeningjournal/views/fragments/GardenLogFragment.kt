@@ -61,6 +61,7 @@ class GardenLogFragment
 
     override fun viewGardenLog(plant: Plant) {
         val action = GardenLogFragmentDirections.navigateGardenLogToPlantDetail()
+        action.plantId = plant.id
         Navigation.findNavController(requireView()).navigate(action)
     }
 

@@ -29,6 +29,10 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             />
+        <argument
+            android:name="plantId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
 </navigation>
